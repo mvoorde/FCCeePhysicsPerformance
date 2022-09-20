@@ -28,7 +28,9 @@ tar -xf MG5_aMC_v3.4.0.tar)
 
 Then download the HAHM_MG5model_v1 model from http://insti.physics.sunysb.edu/~curtin/hahm_mg.html. Copy to lxplus and unzip with the same procedure.
 
-Move the HAHM_variableMW_UFO and HAHM_variablesw_UFO into the Madgraph5 models directory:
+Move the HAHM_variableMW_UFO and HAHM_variablesw_UFO into the Madgraph5 models directory: `MG5_aMC_v3_4_0/models/`.
+
+Now run:
 ```
 ./bin/mg5_aMC
 ```
