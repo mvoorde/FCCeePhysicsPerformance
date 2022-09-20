@@ -30,7 +30,7 @@ Then download the HAHM_MG5model_v1 model from http://insti.physics.sunysb.edu/~c
 
 Move the HAHM_variableMW_UFO and HAHM_variablesw_UFO into the Madgraph5 models directory: `MG5_aMC_v3_4_0/models/`.
 
-Now run:
+Now change to the Madgraph directory and run Madgraph:
 ```
 cd MG5_aMC_v3_4_0
 ./bin/mg5_aMC
@@ -58,7 +58,7 @@ For dark photon case: kap = 1.000000e-09 and MHS=1.000000e+03
 
 Now run
 ```
-./bin/mg5_aMC mg5_proc_card.dat
+./bin/mg5_aMC PROC_HAHM_variableMW_UFO_<Model>/Cards/mg5_proc_card.dat
 ```
 to create the LHE file, where `mg5_proc_card.dat` is the madgraph proc card you are interested in generating.
 
