@@ -32,6 +32,7 @@ Move the HAHM_variableMW_UFO and HAHM_variablesw_UFO into the Madgraph5 models d
 
 Now run:
 ```
+cd MG5_aMC_v3_4_0
 ./bin/mg5_aMC
 ```
 
