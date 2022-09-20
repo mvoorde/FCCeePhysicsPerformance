@@ -50,7 +50,7 @@ generate h > hs hs
 output PROC_HAHM_variableMW_UFO_DarkScalar
 ```
 
-Now set parameters in `PROC_HAHM_variableMW_UFO_Model/Cards/param_card.dat`:
+Now set parameters in `PROC_HAHM_variableMW_UFO_<Model>/Cards/param_card.dat`:
 
 For scalar case: Set epsilon=1.000000e-09 and mZD=1.000000e+03
 
