@@ -13,7 +13,9 @@ export PYTHONPATH=/cvmfs/sw.hsf.org/spackages/linux-centos7-broadwell/gcc-8.3.0/
 export PATH=/cvmfs/sw.hsf.org/spackages/linux-centos7-broadwell/gcc-8.3.0/fccanalyses-0.2.0pre02-6kok72w65toi2vvgedijdoqnd4hgg2wu/python/bin:$PATH
 ```
 
-Now download the latest version of madgraph (http://madgraph.phys.ucl.ac.be/). Here we're using MadGraph5 v3.4.0. Copy the Madgraph tarball to your local area on lxplus:
+Now download the latest version of madgraph (http://madgraph.phys.ucl.ac.be/). Here we're using MadGraph5 v3.4.0. 
+
+Copy the Madgraph tarball to your local area on lxplus:
 
 ```
 scp MG5_aMC_v3.4.0.tar username@lxplus.cern.ch:/path/to/your/dir
@@ -46,7 +48,9 @@ output PROC_HAHM_variableMW_UFO_DarkScalar
 ```
 
 Now set parameters in `PROC_HAHM_variableMW_UFO_Model/Cards/param_card.dat`:
+
 For scalar case: Set epsilon=1.000000e-09 and mZD=1.000000e+03
+
 For dark photon case: kap = 1.000000e-09 and MHS=1.000000e+03 
 
 Now run
