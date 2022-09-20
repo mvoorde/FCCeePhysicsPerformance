@@ -58,9 +58,11 @@ For dark photon case: kap = 1.000000e-09 and MHS=1.000000e+03
 
 Now run
 ```
-./bin/mg5_aMC PROC_HAHM_variableMW_UFO_<Model>/Cards/mg5_proc_card.dat
+./bin/mg5_aMC /absolute/path/to/PROC_HAHM_variableMW_UFO_<Model>/Cards/mg5_proc_card.dat
+cd PROC_HAHM_variableMW_UFO_<Model>
+./bin/generate_events
 ```
-to create the LHE file, where `mg5_proc_card.dat` is the madgraph proc card you are interested in generating.
+to create the LHE file.
 
 
 The resulting events will be stored in `PROC_HAHM_variableMW_UFO_DarkScalar/Events/run_01/unweighted_events.lhe.gz` file.
