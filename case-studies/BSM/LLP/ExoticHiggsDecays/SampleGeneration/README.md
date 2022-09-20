@@ -1,13 +1,17 @@
 Author: Giulia Ripellino
+
 Contact: giulia.ripellino@cern.ch
+
 This folder will allow you to create your own madgraph sample for exotic Higgs decays.
 
-To add: What decays?
+TO DO: What final states do we want to generate?
 
 First, set up the FCC analysis environment (necessary e.g to enable use of python 3.7 which is needed for MagGraph):
+```
 source /cvmfs/fcc.cern.ch/sw/latest/setup.sh
 export PYTHONPATH=/cvmfs/sw.hsf.org/spackages/linux-centos7-broadwell/gcc-8.3.0/fccanalyses-0.2.0pre02-6kok72w65toi2vvgedijdoqnd4hgg2wu/python:$PYTHONPATH
 export PATH=/cvmfs/sw.hsf.org/spackages/linux-centos7-broadwell/gcc-8.3.0/fccanalyses-0.2.0pre02-6kok72w65toi2vvgedijdoqnd4hgg2wu/python/bin:$PATH
+```
 
 Now download the latest version of madgraph (http://madgraph.phys.ucl.ac.be/). Here we're using MadGraph5 v3.4.0. Copy the Madgraph tarball to your local area on lxplus:
 
@@ -15,38 +19,46 @@ Now download the latest version of madgraph (http://madgraph.phys.ucl.ac.be/). H
 scp MG5_aMC_v3.4.0.tar username@lxplus.cern.ch:/path/to/your/dir
 ```
 
-Then ssh to lxplus and unzip the tarball (tar -xf MG5_aMC_v3.4.0.tar).
+Then ssh to lxplus and unzip the tarball 
+```
+tar -xf MG5_aMC_v3.4.0.tar)
+```
 
 Then download the HAHM_MG5model_v1 model from http://insti.physics.sunysb.edu/~curtin/hahm_mg.html. Copy to lxplus and unzip with the same procedure.
 
-Move the HAHM_variableMW_UFO and HAHM_variablesw_UFO into the Madgraph5 models directory.
-
-
+Move the HAHM_variableMW_UFO and HAHM_variablesw_UFO into the Madgraph5 models directory:
+```
 ./bin/mg5_aMC
+```
 
-Then enter:
+Then enter (for Higgs to dark photons):
+```
 set auto_convert_model T
 import model --modelname HAHM_variableMW_UFO
-generate h > zp zp (Higgs to dark photons)
+generate h > zp zp 
 output PROC_HAHM_variableMW_UFO_DarkPhoton
+```
 
-or
-generate h > hs hs (Higgs to scalar)
+or (for Higgs to scalars)
+```
+generate h > hs hs 
 output PROC_HAHM_variableMW_UFO_DarkScalar
+```
 
-Now set parameters in PROC_HAHM_variableMW_UFO_Model/Cards/param_card.dat:
+Now set parameters in `PROC_HAHM_variableMW_UFO_Model/Cards/param_card.dat`:
 For scalar case: Set epsilon=1.000000e-09 and mZD=1.000000e+03
 For dark photon case: kap = 1.000000e-09 and MHS=1.000000e+03 
 
+Now run
 ```
 ./bin/mg5_aMC mg5_proc_card.dat
 ```
-to create the LHE file, where mg5_proc_card.dat is the madgraph proc card you are interested in generating.
+to create the LHE file, where `mg5_proc_card.dat` is the madgraph proc card you are interested in generating.
 
 
-The resulting events will be stored in  PROC_HAHM_variableMW_UFO_DarkScalar/Events/run_01/unweighted_events.lhe.gz file.
+The resulting events will be stored in `PROC_HAHM_variableMW_UFO_DarkScalar/Events/run_01/unweighted_events.lhe.gz` file.
 
-Unzip it (gunzip unweighted_events.lhe.gz) and give the *absolute* path to DarkScalar_pythia.cmnd file to generate the delphes root file.
+Unzip it (`gunzip unweighted_events.lhe.gz`) and give the *absolute* path to DarkScalar_pythia.cmnd file to generate the delphes root file.
 
 
 
@@ -74,4 +86,4 @@ LesHouchesEvents version=“3.0” —> LesHouchesEvents version=“2.0”
 
 Do not open the file in an editor, will take forever to open. Change it in emacs or wim or similar.
 
-the resulting DarkScalar.root is your EDM sample!
+The resulting DarkScalar.root is your EDM sample!
