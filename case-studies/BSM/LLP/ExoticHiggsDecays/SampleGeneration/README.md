@@ -7,7 +7,9 @@ This folder will allow you to create your own madgraph sample for exotic Higgs d
 TO DO: What final states do we want to generate?
 
 First, set up the FCC analysis environment (necessary e.g to enable use of python 3.7 which is needed for MagGraph):
+
 (This needs to be done every new log in?)
+
 ```
 source /cvmfs/fcc.cern.ch/sw/latest/setup.sh
 export PYTHONPATH=/cvmfs/sw.hsf.org/spackages/linux-centos7-broadwell/gcc-8.3.0/fccanalyses-0.2.0pre02-6kok72w65toi2vvgedijdoqnd4hgg2wu/python:$PYTHONPATH
@@ -65,11 +67,9 @@ Now run
 ```
 to create the LHE file, where `mg5_proc_card.dat` is the madgraph proc card you are interested in generating.
 
-
 The resulting events will be stored in `PROC_HAHM_variableMW_UFO_DarkScalar/Events/run_01/unweighted_events.lhe.gz` file.
 
 Unzip it (`gunzip unweighted_events.lhe.gz`) and give the *absolute* path to DarkScalar_pythia.cmnd file to generate the delphes root file.
-
 
 You also need to grab the latest official Delphes card and edm4hep tcl file:
 ```
@@ -141,6 +141,7 @@ DelphesPythia8_EDM4HEP ../../../../../../FCC-config/FCCee/Delphes/card_IDEA.tcl 
 ```
 
 The resulting DarkScalar.root is your EDM sample!
+
 
 
 
